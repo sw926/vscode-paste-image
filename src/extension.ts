@@ -325,9 +325,9 @@ class Paster {
         }
         else if (platform === 'darwin') {
             // Mac
-            let scriptPath = path.join(__dirname, '../../res/mac.applescript');
+            let scriptPath = path.join(__dirname, '../../res/mac.sh');
+            let ascript = spawn('sh', [scriptPath, imagePath]);
 
-            let ascript = spawn('osascript', [scriptPath, imagePath]);
             ascript.on('error', function (e) {
                 Logger.showErrorMessage(e);
             });
